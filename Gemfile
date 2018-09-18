@@ -64,3 +64,4 @@ gem 'tzinfo-data'
 
 gem 'devise'
 gem 'haml-rails'
+gem 'seed-fu'

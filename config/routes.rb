@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :list
+  get 'musics(/:date)(.:format)' => 'music#index'
+  resources :list, only: [:index]
   devise_for :users
   get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
