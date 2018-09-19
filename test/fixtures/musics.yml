@@ -1,59 +1,78 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  text_id: MyString
-  lookup_key: MyString
+cxb_wannabe:
+  text_id: cxb_wannabeyourspecial
+  lookup_key: cxb_wannabeyourspecial
   number: 1
-  title: MyString
-  subtitle: MyString
-  sort_key: MyString
-  artist: MyString
-  min_bpm: 9.99
-  max_bpm: 9.99
-  level1: 9.99
-  notes1: 1
-  level2: 9.99
-  notes2: 1
-  level3: 9.99
-  notes3: 1
-  level4: 9.99
-  notes4: 1
-  level5: 9.99
-  notes5: 1
-  added_at: 2018-09-18
-  revised_at: 2018-09-18
-  event: MyString
-  limited: false
-  hidden: false
-  deleted: false
-  deleted_at: 2018-09-18
-  activated: false
+  title: Wanna Be Your Special
+  sort_key: wanna be your special
+  artist: Shoichiro Hirata feat. SUIMI
+  min_bpm: 137
+  max_bpm: 137
+  level2: 8
+  notes2: 89
+  level3: 23
+  notes3: 163
+  level4: 40
+  notes4: 230
+  added_at: 2013-12-02
+  activated: true
 
-two:
-  text_id: MyString
-  lookup_key: MyString
-  number: 1
-  title: MyString
-  subtitle: MyString
-  sort_key: MyString
-  artist: MyString
-  min_bpm: 9.99
-  max_bpm: 9.99
-  level1: 9.99
-  notes1: 1
-  level2: 9.99
-  notes2: 1
-  level3: 9.99
-  notes3: 1
-  level4: 9.99
-  notes4: 1
-  level5: 9.99
-  notes5: 1
-  added_at: 2018-09-18
-  revised_at: 2018-09-18
-  event: MyString
-  limited: false
-  hidden: false
-  deleted: false
-  deleted_at: 2018-09-18
+cxb_aeug:
+  text_id: cxb_aeug
+  lookup_key: cxb_aeug
+  number: 52
+  title: AxExUxG -act.1-
+  sort_key: aeug
+  artist: 190Cb
+  min_bpm: 95
+  max_bpm: 190
+  level2: 44
+  notes2: 303
+  level3: 69
+  notes3: 454
+  level4: 90
+  notes4: 545
+  added_at: 2014-01-16
+  hidden: true
+  activated: true
+
+cxb_hagitoko:
+  text_id: cxb_hagitoko
+  lookup_key: cxb_hagitoko
+  number: 64
+  title: 「ハギとこ!」のテーマ
+  sort_key: ハギトコノテーマ
+  artist: ハギー
+  min_bpm: 150
+  max_bpm: 150
+  level2: 12
+  notes2: 68
+  level3: 26
+  notes3: 141
+  level4: 50
+  notes4: 299
+  added_at: 2014-03-04
+  hidden: true
+  deleted: true
+  deleted_at: 2016-06-21
+  activated: true
+
+cxb_spica:
+  text_id: cxb_spica
+  lookup_key: cxb_spica
+  number: 999
+  title: Spica
+  sort_key: spica
+  artist: Endorfin.
+  min_bpm: 128
+  max_bpm: 128
+  level2: 8
+  notes2: 130
+  level3: 23
+  notes3: 168
+  level4: 40
+  notes4: 230
+  added_at: 2999-12-31
+  limited: true
   activated: false

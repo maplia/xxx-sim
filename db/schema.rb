@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_152455) do
+ActiveRecord::Schema.define(version: 2018_09_19_125814) do
+
+  create_table "monthlies", force: :cascade do |t|
+    t.datetime "span_s", null: false
+    t.integer "seq", null: false
+    t.integer "music_id", null: false
+    t.datetime "span_e", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["music_id", "span_s"], name: "index_monthlies_on_music_id_and_span_s", unique: true
+    t.index ["music_id"], name: "index_monthlies_on_music_id"
+  end
 
   create_table "musics", force: :cascade do |t|
     t.string "text_id", null: false

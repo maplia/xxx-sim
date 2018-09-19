@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+monthly_201806_1:
+  span_s: 2018-06-01 04:00:00
+  seq: 1
+  music: cxb_wannabe
+  span_e: 2999-12-31 23:59:59

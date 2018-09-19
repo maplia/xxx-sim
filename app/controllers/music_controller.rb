@@ -1,5 +1,5 @@
 class MusicController < ApplicationController
   def index
-    @musics = Music.all.order(:number)
+    @musics = Music.find_actives(params[:date]).order(:number)
   end
 end

@@ -1,6 +1,8 @@
 %h1 Music#index
 %p Find me in app/views/music/index.html.haml
 
+%h2 Monthly
+
 %table
   %thead
     %tr
@@ -14,12 +16,65 @@
       %th notes
   %tbody
     - @musics.each do |music|
+      - next unless music.monthly?
       %tr
         %th= music.number
         %td= music.title
-        %td= music.level1
-        %td= music.notes1
-        %td= music.level2
-        %td= music.notes2
-        %td= music.level3
-        %td= music.notes3
+        %td= music.level(MUSIC_DIFF_STD)
+        %td= music.notes(MUSIC_DIFF_STD)
+        %td= music.level(MUSIC_DIFF_HRD)
+        %td= music.notes(MUSIC_DIFF_HRD)
+        %td= music.level(MUSIC_DIFF_MAS)
+        %td= music.notes(MUSIC_DIFF_MAS)
+
+%h2 Normal
+
+%table
+  %thead
+    %tr
+      %th #
+      %th title
+      %th level1
+      %th notes
+      %th level2
+      %th notes
+      %th level3
+      %th notes
+  %tbody
+    - @musics.each do |music|
+      - next if music.monthly? or music.deleted?
+      %tr
+        %th= music.number
+        %td= music.title
+        %td= music.level(MUSIC_DIFF_STD)
+        %td= music.notes(MUSIC_DIFF_STD)
+        %td= music.level(MUSIC_DIFF_HRD)
+        %td= music.notes(MUSIC_DIFF_HRD)
+        %td= music.level(MUSIC_DIFF_MAS)
+        %td= music.notes(MUSIC_DIFF_MAS)
+
+%h2 Deleted
+
+%table
+  %thead
+    %tr
+      %th #
+      %th title
+      %th level1
+      %th notes
+      %th level2
+      %th notes
+      %th level3
+      %th notes
+  %tbody
+    - @musics.each do |music|
+      - next unless music.deleted?
+      %tr
+        %th= music.number
+        %td= music.title
+        %td= music.level(MUSIC_DIFF_STD)
+        %td= music.notes(MUSIC_DIFF_STD)
+        %td= music.level(MUSIC_DIFF_HRD)
+        %td= music.notes(MUSIC_DIFF_HRD)
+        %td= music.level(MUSIC_DIFF_MAS)
+        %td= music.notes(MUSIC_DIFF_MAS)
