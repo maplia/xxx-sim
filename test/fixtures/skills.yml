@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+skill_one_cxb_wannabe:
+  user: one
+  music: cxb_wannabe
+
+skill_rev_cxb_wannabe:
+  user: one
+  music: rev_wannabe
+
+skill_fixed:
+  user: one
+  music: cxb_hagitoko
+  point1: 1.2
+  point2: 2.4
+  point3: 3.6
+  point4: 4.8
+  point5: 6.0

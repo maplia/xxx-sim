@@ -76,3 +76,50 @@ cxb_spica:
   added_at: 2999-12-31
   limited: true
   activated: false
+
+rev_wannabe:
+  text_id: rev_wannabeyourspecial
+  lookup_key: rev_wannabeyourspecial
+  number: 0
+  title: Wanna Be Your Special
+  sort_key: wanna be your special
+  artist: Shoichiro Hirata feat. SUIMI
+  min_bpm: 137
+  max_bpm: 137
+  level1: 5
+  notes1: 72
+  level2: 9
+  notes2: 89
+  level3: 23
+  notes3: 163
+  level4: 40
+  notes4: 230
+  level5: 65
+  notes5: 475
+  added_at: 2017-01-13
+  revised_at: 2017-01-13
+  hidden: true
+  activated: false
+
+rev_linklink:
+  text_id: rev_linklinkfever
+  lookup_key: rev_linklinkfever
+  number: 0
+  title: LINK LINK FEVER!!!
+  sort_key: link link fever
+  artist: 'リンカ (CV: 豊田萌絵)'
+  min_bpm: 182
+  max_bpm: 182
+  level1: 10
+  notes1: 88
+  level2: 22
+  notes2: 160
+  level3: 40
+  notes3: 357
+  level4: 52
+  notes4: 428
+  level5: 73
+  notes5: 647
+  added_at: 2016-06-10
+  revised_at: 2016-07-29
+  activated: false

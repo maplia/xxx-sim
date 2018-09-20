@@ -1,0 +1,24 @@
+- if musics.size > 0
+  %h2= section
+  %table
+    %thead
+      %tr
+        %th #
+        %th title
+        %th level1
+        %th notes
+        %th level2
+        %th notes
+        %th level3
+        %th notes
+    %tbody
+      - musics.each do |music|
+        %tr
+          %th= music.number
+          %td= raw music.title
+          %td= music.level(MUSIC_DIFF_STD)
+          %td= music.notes(MUSIC_DIFF_STD)
+          %td= music.level(MUSIC_DIFF_HRD)
+          %td= music.notes(MUSIC_DIFF_HRD)
+          %td= music.level(MUSIC_DIFF_MAS)
+          %td= music.notes(MUSIC_DIFF_MAS)

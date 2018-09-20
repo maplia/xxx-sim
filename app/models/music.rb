@@ -9,16 +9,12 @@ class Music < ApplicationRecord
     @@pivot = pivot
   end
 
-  def self.find_actives(date_str=nil)
+  def self.find_actives
     musics = Music.where(activated: true)
-    if date_str
-      date = Date.parse(date_str)
-      @@pivot = date
-      musics = musics.where('added_at <= ?', date)
-        .where('deleted = ? or deleted_at >= ?', false, date)
-    else
-      musics = musics.where(deleted: false)
+    if @@pivot
+      musics = musics.where('added_at <= ?', @@pivot)
     end
+    musics
   end
 
   def level(diff)
@@ -31,5 +27,9 @@ class Music < ApplicationRecord
 
   def monthly?
     monthly.present?
+  end
+
+  def deleted?
+    @@pivot ? (deleted_at.present? && deleted_at < @@pivot) : deleted
   end
 end

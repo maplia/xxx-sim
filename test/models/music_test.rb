@@ -33,48 +33,52 @@ class MusicTest < ActiveSupport::TestCase
     assert Music.where(text_id: musics(:cxb_wannabe).text_id).first.monthly?
   end
 
-  test "find_actives" do
-    musics = Music.find_actives
-    music_ids = musics.pluck(:text_id)
+  test 'deleted?' do
+    Music.pivot = nil
+    assert_not musics(:cxb_wannabe).deleted?
+    assert musics(:cxb_hagitoko).deleted?
+
+    Music.pivot = Time.parse('2016-06-20')
+    assert_not musics(:cxb_wannabe).deleted?
+    assert_not musics(:cxb_hagitoko).deleted?
+
+    Music.pivot = Time.parse('2016-06-21')
+    assert_not musics(:cxb_hagitoko).deleted?
+
+    Music.pivot = Time.parse('2016-06-22')
+    assert musics(:cxb_hagitoko).deleted?
+  end
+
+  test 'find_actives' do
+    Music.pivot = nil
+    music_ids = Music.find_actives.pluck(:text_id)
     assert music_ids.include?(musics(:cxb_wannabe).text_id)
     assert music_ids.include?(musics(:cxb_aeug).text_id)
-    assert_not music_ids.include?(musics(:cxb_hagitoko).text_id)
+    assert music_ids.include?(musics(:cxb_hagitoko).text_id)
     assert_not music_ids.include?(musics(:cxb_spica).text_id)
 
-    musics = Music.find_actives('20131201')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2013-12-01')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert_not music_ids.include?(musics(:cxb_wannabe).text_id)
 
-    musics = Music.find_actives('20131202')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2013-12-02')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert music_ids.include?(musics(:cxb_wannabe).text_id)
 
-    musics = Music.find_actives('20131203')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2013-12-03')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert music_ids.include?(musics(:cxb_wannabe).text_id)
 
-    musics = Music.find_actives('20140115')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2014-01-15')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert_not music_ids.include?(musics(:cxb_aeug).text_id)
 
-    musics = Music.find_actives('20140116')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2014-01-16')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert music_ids.include?(musics(:cxb_aeug).text_id)
 
-    musics = Music.find_actives('20140117')
-    music_ids = musics.pluck(:text_id)
+    Music.pivot = Date.parse('2014-01-17')
+    music_ids = Music.find_actives.pluck(:text_id)
     assert music_ids.include?(musics(:cxb_aeug).text_id)
-
-    musics = Music.find_actives('20160620')
-    music_ids = musics.pluck(:text_id)
-    assert music_ids.include?(musics(:cxb_hagitoko).text_id)
-
-    musics = Music.find_actives('20160621')
-    music_ids = musics.pluck(:text_id)
-    assert music_ids.include?(musics(:cxb_hagitoko).text_id)
-
-    musics = Music.find_actives('20160622')
-    music_ids = musics.pluck(:text_id)
-    assert_not music_ids.include?(musics(:cxb_hagitoko).text_id)
   end
 end
