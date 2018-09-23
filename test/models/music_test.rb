@@ -2,21 +2,31 @@ require 'test_helper'
 
 class MusicTest < ActiveSupport::TestCase
   test 'level' do
-    assert_same musics(:cxb_wannabe).level(MUSIC_DIFF_ESY), musics(:cxb_wannabe).level1
-    assert_same musics(:cxb_wannabe).level(MUSIC_DIFF_STD), musics(:cxb_wannabe).level2
-    assert_same musics(:cxb_wannabe).level(MUSIC_DIFF_HRD), musics(:cxb_wannabe).level3
-    assert_same musics(:cxb_wannabe).level(MUSIC_DIFF_MAS), musics(:cxb_wannabe).level4
-    assert_same musics(:cxb_wannabe).level(MUSIC_DIFF_UNL), musics(:cxb_wannabe).level5
-    assert_nil musics(:cxb_wannabe).level(128)
+    Music.mode = :cxb
+    [:cxb_wannabe].each do |target|
+      assert_same_each_music_diff musics(target), 'level'
+      assert_nil musics(target).level(128)
+    end
+
+    Music.mode = :rev
+    [:rev_wannabe].each do |target|
+      assert_same_each_music_diff musics(target), 'level'
+      assert_nil musics(target).level(128)
+    end
   end
 
   test 'notes' do
-    assert_same musics(:cxb_wannabe).notes(MUSIC_DIFF_ESY), musics(:cxb_wannabe).notes1
-    assert_same musics(:cxb_wannabe).notes(MUSIC_DIFF_STD), musics(:cxb_wannabe).notes2
-    assert_same musics(:cxb_wannabe).notes(MUSIC_DIFF_HRD), musics(:cxb_wannabe).notes3
-    assert_same musics(:cxb_wannabe).notes(MUSIC_DIFF_MAS), musics(:cxb_wannabe).notes4
-    assert_same musics(:cxb_wannabe).notes(MUSIC_DIFF_UNL), musics(:cxb_wannabe).notes5
-    assert_nil musics(:cxb_wannabe).notes(128)
+    Music.mode = :cxb
+    [:cxb_wannabe].each do |target|
+      assert_same_each_music_diff musics(target), 'notes'
+      assert_nil musics(target).notes(128)
+    end
+
+    Music.mode = :rev
+    [:rev_wannabe].each do |target|
+      assert_same_each_music_diff musics(target), 'notes'
+      assert_nil musics(target).notes(128)
+    end
   end
 
   test 'monthly?' do
@@ -47,6 +57,14 @@ class MusicTest < ActiveSupport::TestCase
 
     Music.pivot = Time.parse('2016-06-22')
     assert musics(:cxb_hagitoko).deleted?
+  end
+
+  test 'max_diff' do
+    Music.mode = :cxb
+    assert_equal MUSIC_DIFF_MAS, musics(:cxb_wannabe).max_diff
+
+    Music.mode = :rev
+    assert_equal MUSIC_DIFF_UNL, musics(:rev_wannabe).max_diff
   end
 
   test 'find_actives' do

@@ -8,9 +8,27 @@ skill_rev_cxb_wannabe:
   user: one
   music: rev_wannabe
 
-skill_fixed:
+skill_cxb_fixed:
   user: one
   music: cxb_hagitoko
+  stat2: 2
+  stat3: 3
+  stat4: 4
+  point2: 2.4
+  point3: 3.6
+  point4: 4.8
+  locked2: true
+  locked3: false
+  locked4: true
+
+skill_rev_fixed:
+  user: one
+  music: rev_spica
+  stat1: 1
+  stat2: 2
+  stat3: 3
+  stat4: 4
+  stat5: 5
   point1: 1.2
   point2: 2.4
   point3: 3.6

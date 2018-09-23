@@ -18,11 +18,11 @@ class Music < ApplicationRecord
   end
 
   def level(diff)
-    valid_diff?(diff) ? self.send("level#{diff}") : nil
+    valid_diff?(diff) ? send("level#{diff}") : nil
   end
 
   def notes(diff)
-    valid_diff?(diff) ? self.send("notes#{diff}") : nil
+    valid_diff?(diff) ? send("notes#{diff}") : nil
   end
 
   def monthly?
@@ -31,5 +31,15 @@ class Music < ApplicationRecord
 
   def deleted?
     @@pivot ? (deleted_at.present? && deleted_at < @@pivot) : deleted
+  end
+
+  def max_diff
+    max_diff = nil
+    music_diffs.keys.sort.reverse.each do |diff|
+      next unless level(diff)
+      max_diff = diff
+      break
+    end
+    max_diff
   end
 end

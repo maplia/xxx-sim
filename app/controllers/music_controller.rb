@@ -1,5 +1,6 @@
 class MusicController < ApplicationController
   def index
+    Music.mode = SITE_MODE
     Music.pivot = Date.parse(params[:date]) if params[:date]
     musics = Music.find_actives.order(:number)
 

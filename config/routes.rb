@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'max_view(/:date)(.:format)' => 'skill#max'
   get 'musics(/:date)(.:format)' => 'music#index'
   resources :list, only: [:index]
   devise_for :users
